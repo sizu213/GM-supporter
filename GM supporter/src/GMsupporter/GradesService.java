@@ -3,7 +3,7 @@ package GMsupporter;
 import java.util.ArrayList;
 import java.util.List;
 
-public class GradesService {
+public class GradesService extends Grades {
 
 	private List<Grades> gradesList = new ArrayList<>();
 
