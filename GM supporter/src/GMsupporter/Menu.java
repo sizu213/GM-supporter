@@ -5,6 +5,8 @@ public class Menu {
 
 	public void start() {
 		while (true) {
+			System.out.println("==メニュー==");
+			System.out.println();
 		}
 
 	}
