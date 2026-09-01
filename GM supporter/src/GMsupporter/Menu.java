@@ -6,7 +6,8 @@ public class Menu {
 	public void start() {
 		while (true) {
 			System.out.println("==メニュー==");
-			System.out.println();
+			System.out.println("1:登録");
+			System.out.println("2:一覧");
 		}
 
 	}
