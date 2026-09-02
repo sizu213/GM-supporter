@@ -17,12 +17,24 @@ public class Grades {
 		return id;
 	}
 
+	public void setId(int id) {
+		this.id = id;
+	}
+
 	public String getName() {
 		return name;
 	}
 
+	public void setName(String name) {
+		this.name = name;
+	}
+
 	public String getSubject() {
 		return subject;
+	}
+
+	public void setSubject(String subject) {
+		this.subject = subject;
 	}
 
 	public int getScore() {
@@ -31,6 +43,11 @@ public class Grades {
 
 	public void setScore(int score) {
 		this.score = score;
+	}
+
+	@Override
+	public String toString() {
+		return "【ID: " + id + "】 名前: " + name + ", 教科: " + subject + ", 点数: " + score;
 	}
 
 }
