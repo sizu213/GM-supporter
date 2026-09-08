@@ -13,21 +13,37 @@ public class GradesService {
 		System.out.println("登録完了: " + name + " / " + subject);
 	}
 
-	void executeCreate() {
-		System.out.println("\n--- 成績データの登録 ---");
-		int id = InputUtil.readInt("出席番号 (ID): ");
-		String name = InputUtil.readString("生徒名: ");
-		String subject = InputUtil.readString("教科: ");
-		int score = InputUtil.readInt("点数: ");
+	public void showGradesList() {
+		if (gradesList.isEmpty()) {
+			System.out.println("登録されている成績データはありません。");
+			return;
+		}
 
-		createGrades(id, name, subject, score);
+		System.out.println("\n--- 成績一覧 ---");
+		for (Grades g : gradesList) {
+			System.out.println("ID: " + g.getId() + " | 名前: " + g.getName() + " | 教科: " + g.getSubject() + " | 点数: "
+					+ g.getScore());
+		}
 	}
 
-	void Gradeslist() {
-		if (gradesList.isEmpty()) {
-			System.out.println("何も登録されていません");
-		} else {
-			System.out.println(gradesList);
+	public boolean updateGrade(int id, String subject, int newScore) {
+		for (Grades grade : gradesList) {
+			if (grade.getId() == id && grade.getSubject().equalsIgnoreCase(subject)) {
+				grade.setScore(newScore);
+				return true;
+			}
 		}
+		return false;
+	}
+
+	public boolean deleteGrade(int id, String subject) {
+		for (int i = 0; i < gradesList.size(); i++) {
+			Grades g = gradesList.get(i);
+			if (g.getId() == id && g.getSubject().equalsIgnoreCase(subject)) {
+				gradesList.remove(i);
+				return true;
+			}
+		}
+		return false;
 	}
 }
